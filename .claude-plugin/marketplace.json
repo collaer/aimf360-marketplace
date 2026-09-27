@@ -1,0 +1,15 @@
+{
+  "name": "aimf360",
+  "description": "AmazoniaForever360+ plugins.",
+  "owner": {
+    "name": "AmazoniaForever360+",
+    "url": "https://aimf360.collaer.workers.dev"
+  },
+  "plugins": [
+    {
+      "name": "amf360",
+      "source": "./plugins/amf360",
+      "description": "AmazoniaForever360+ methodology skill + live MCP tools for grounded geospatial analysis of Amazonia. Prompts for an access token on install."
+    }
+  ]
+}
