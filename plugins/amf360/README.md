@@ -5,12 +5,13 @@ Amazonia) and the **AMF360+ MCP server** (14 live tools).
 
 ## Token
 
-Claude Code will prompt you for the **AMF360+ access token** when you install the plugin from the marketplace (it is stored securely, not in a settings file). Get the token from the maintainer.
+No token in the files. When the MCP server first connects, your client (Cowork or Claude Code) opens the AMF360+ sign-in page: paste the **AMF360+ access token** there once. Get the token from the maintainer.
 
 ## Load it
 
-- From a marketplace (prompts for the token): `/plugin install amf360@<marketplace>`.
-- For a one-off local test: `claude --plugin-dir /path/to/amf360-plugin` (then set the token with `/plugin configure amf360`).
+- From a marketplace: `/plugin install amf360@<marketplace>` (Claude Code), or
+  add the marketplace in Cowork's plugin settings.
+- For a one-off local test: `claude --plugin-dir /path/to/amf360-plugin` (then run `/mcp` and authenticate amf360).
 
 Check the server: run `/mcp`. Then ask, e.g. *"How much of the Ecuadorian
 Amazon is protected, and how much of that is deforested?"* The server is

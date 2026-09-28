@@ -9,7 +9,7 @@
     {
       "name": "amf360",
       "source": "./plugins/amf360",
-      "description": "AmazoniaForever360+ methodology skill + live MCP tools for grounded geospatial analysis of Amazonia. Prompts for an access token on install."
+      "description": "AmazoniaForever360+ methodology skill + live MCP tools for grounded geospatial analysis of Amazonia. Sign in once with an access token (works in Cowork and Claude Code)."
     }
   ]
 }

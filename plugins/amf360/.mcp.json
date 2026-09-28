@@ -2,10 +2,7 @@
   "mcpServers": {
     "amf360": {
       "type": "http",
-      "url": "https://aimf360.collaer.workers.dev/mcp",
-      "headers": {
-        "Authorization": "Bearer ${user_config.token}"
-      }
+      "url": "https://aimf360.collaer.workers.dev/mcp"
     }
   }
 }
