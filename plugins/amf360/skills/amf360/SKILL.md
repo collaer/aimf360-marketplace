@@ -1,11 +1,12 @@
 ---
 name: amf360
 description: >
-  Analyze Amazonia using geographic, environmental, socioeconomic and
-  biodiversity indicators. Use when the user asks questions involving Amazonia,
-  territories, indigenous populations, deforestation, biodiversity, protected
-  areas, water, mining, energy, or combinations of these, and wants a grounded,
-  reproducible spatial answer with sources. Pairs with the AMF360+ MCP server.
+  Analyze the Ecuadorian Amazon with the AmazoniaForever360+ (IDB) indicator
+  catalog: territory, nature, people, economic activities, infrastructure,
+  risks and IDB operations. Use only for geographic or development questions
+  about the Ecuadorian Amazon that need a grounded, reproducible spatial answer
+  with sources. Declines anything else (other regions, recipes, general
+  knowledge). Pairs with the AMF360+ MCP server.
 ---
 
 # AMF360+ methodology
@@ -16,11 +17,31 @@ reproducible spatial analysis. You reason; the AMF360+ MCP server provides the
 data access and the deterministic spatial operations. Never invent numbers, and
 never pick a dataset from its name alone.
 
+## Scope gate (check first, every time)
+
+AMF360+ only answers geographic and development questions about the
+**Ecuadorian Amazon** that the AMF360+ catalog can answer (territory, nature,
+people, economic activities, infrastructure, risks, knowledge products, IDB
+operations). Before any tool call, check the request against
+`references/scope.md`.
+
+- **In scope:** follow the workflow below.
+- **Out of scope** (another country or region as the subject, or a question the
+  catalog cannot answer, such as recipes, travel, trivia, coding, advice):
+  decline in the user's language in two or three sentences, say what AMF360+
+  covers, and suggest one in-scope question. Do not answer it anyway, not even
+  partially or "from general knowledge", and do not call any tool.
+- **Mixed:** answer only the in-scope part and say what you left out.
+
+A question that mentions the Amazon is not automatically in scope. "A clafoutis
+recipe with Amazonian fruits" is a cooking question: decline it.
+
 ## When to use this skill
 
-Trigger on questions about Amazonian territory that combine a place, a
-population or phenomenon, and a condition. For example: "Where in Ecuador are
-indigenous populations in areas with deforestation and high biodiversity?"
+Trigger on questions about the Ecuadorian Amazon that combine a place, a
+population or phenomenon, and a condition. For example: "Where in the
+Ecuadorian Amazon are indigenous populations in areas with deforestation and
+high biodiversity?"
 
 ## The workflow
 
@@ -42,6 +63,8 @@ indigenous populations in areas with deforestation and high biodiversity?"
 
 ## Hard rules
 
+- **Scope.** Ecuadorian Amazon and AMF360+ topics only. Decline everything
+  else (see the scope gate above).
 - **Dataset selection.** Never select a dataset merely because its name contains
   the requested concept. Verify definition, geographic and temporal coverage,
   spatial resolution, units, source and update date. If a term is ambiguous
@@ -60,6 +83,7 @@ indigenous populations in areas with deforestation and high biodiversity?"
 
 ## References (load as needed)
 
+- `references/scope.md` — what is in and out of scope, and how to decline.
 - `references/dataset-selection.md` — how to choose the right dataset.
 - `references/care-guardrail.md` — the sensitive-data rule and how to comply.
 - `references/explainability.md` — the explanation block every answer carries.
