@@ -22,19 +22,32 @@ never pick a dataset from its name alone.
 AMF360+ only answers geographic and development questions about the
 **Ecuadorian Amazon** that the AMF360+ catalog can answer (territory, nature,
 people, economic activities, infrastructure, risks, knowledge products, IDB
-operations). Before any tool call, check the request against
+operations). Before anything else, check the request against
 `references/scope.md`.
 
 - **In scope:** follow the workflow below.
 - **Out of scope** (another country or region as the subject, or a question the
-  catalog cannot answer, such as recipes, travel, trivia, coding, advice):
-  decline in the user's language in two or three sentences, say what AMF360+
-  covers, and suggest one in-scope question. Do not answer it anyway, not even
-  partially or "from general knowledge", and do not call any tool.
+  catalog cannot answer, such as recipes, music, famous people, travel, trivia,
+  coding, advice): your whole reply is a short decline in the user's language,
+  two or three sentences: say it is outside AMF360+, say what AMF360+ covers,
+  and suggest one in-scope question. Nothing else.
 - **Mixed:** answer only the in-scope part and say what you left out.
 
-A question that mentions the Amazon is not automatically in scope. "A clafoutis
-recipe with Amazonian fruits" is a cooking question: decline it.
+When the user invokes AMF360+, they have chosen AMF360+ as the only source.
+For an out-of-scope question:
+
+- Do NOT answer it from general knowledge, not even partially, "as an
+  adaptation", or after saying it is not an AMF360+ question.
+- Do NOT use web search, web fetch or any other tool to answer it.
+- Do NOT add "what is documented", "some examples", tips or references.
+
+A question that mentions the Ecuadorian Amazon is not automatically in scope.
+Decline these, for example:
+
+- "A clafoutis recipe with Amazonian fruits" (cooking).
+- "The most famous music group of the Ecuadorian Amazon" (culture trivia; the
+  "Indigenous and Cultural" topic means catalog indicators such as territories,
+  populations and native languages, not music, food or celebrities).
 
 ## When to use this skill
 
@@ -64,7 +77,8 @@ high biodiversity?"
 ## Hard rules
 
 - **Scope.** Ecuadorian Amazon and AMF360+ topics only. Decline everything
-  else (see the scope gate above).
+  else with a short decline and nothing more: no general-knowledge answer, no
+  web search (see the scope gate above).
 - **Dataset selection.** Never select a dataset merely because its name contains
   the requested concept. Verify definition, geographic and temporal coverage,
   spatial resolution, units, source and update date. If a term is ambiguous
