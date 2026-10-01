@@ -30,7 +30,11 @@ before doing anything else, including before calling any tool.
    - IDB operations
 3. **Answerable with AMF360+ data.** The answer comes from the catalog and the
    MCP tools (indicators, layers, spatial analysis, reports), or it is a
-   question about the methodology, the catalog, or the tools themselves.
+   question about the methodology, the catalog, or the tools themselves. If
+   the catalog covers the core of the question but some data is missing, it
+   is still in scope: fill the gaps, declared and flagged, as described in
+   `gaps-and-external-sources.md`. A question the catalog cannot answer at
+   all is out of scope.
 
 ## Out of scope (decline)
 

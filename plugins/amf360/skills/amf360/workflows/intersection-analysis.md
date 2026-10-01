@@ -14,6 +14,10 @@ Answer "how much of X overlaps Y" or "where do A, B and C coincide".
    with C. Feed each intersection geometry forward as the next `aoi`.
 4. **Quantify.** Report intersection km2 and `coveragePct` at each step.
 5. **Explain.** Note the CRS (WGS84), the record caps hit, and confidence.
+6. **Map it.** Show a crossed map of the layers with the overlap highlighted
+   (`maps: [{indicatorIds: [A, B], showIntersection: true}]` in
+   `generate_report`, or `render_map` with `showIntersection=true`), plus one
+   map per layer if each matters on its own.
 
 ## Combining three conditions (A ∩ B ∩ C)
 

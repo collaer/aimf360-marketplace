@@ -21,10 +21,12 @@ endpoint (Streamable HTTP). All queries are read-only.
 
 ## Governance
 
-- **assess_layer** `{id}` — trustworthiness of a layer: freshness (last-edit age
-  → fresh / aging / stale / unknown) and credibility (attribution gap, source,
-  CARE sensitivity). Rule-based, mirroring the AMF360+ governance agents. Use it
-  before trusting a dataset, and cite the result in the answer's provenance.
+- **assess_layer** `{id}` — data governance for one layer: `provenance`
+  (original source statement, data year, version, license, URLs cited in the
+  ArcGIS item metadata), `currency` (provisional grade B or C from the data
+  year and the source's release cycle, and `whereToCheck` for a newer
+  version), publication `freshness` (service last edit, which is not the
+  data's age) and `credibility`. Confirm A or D by checking the source.
 
 ## Query
 
@@ -67,14 +69,29 @@ returnGeometry?, returnCountOnly?, resultRecordCount?, confirmHumanReview?}` —
 
 ## Report
 
-- **generate_report** `{question, interpretation?, aoiId?, indicatorIds?,
-mapIndicatorIds?, results?, methodology?, confidence?, confidenceReason?,
-humanReview?, confirmHumanReview?, format?}` — assemble the answer into a
-  markdown or HTML report with the Explainable Answers block and a schematic
-  SVG map. The map shows the AOI, the Ecuador Amazon outline as context, and up
-  to 4 `mapIndicatorIds` feature layers clipped to the AOI, with a legend and
-  scale bar. Pass the layers your results came from. Sensitive layers are
-  listed in the legend but not drawn unless `confirmHumanReview=true`.
+The report sections are fixed (see `report-structure.md`).
+
+- **generate_report** `{question, interpretation?, summary?, aoiId?,
+indicatorIds?, maps?, mapIndicatorIds?, results?, tables?, plan?, trace?,
+methodology?, limitations?, confidence?, confidenceReason?, humanReview?,
+confirmHumanReview?, format?}` — assemble the full report on the server
+  (markdown or HTML). `aoiId` gives the overview map. `maps` (max 4) are
+  `{title, indicatorIds (1-4), showIntersection?}`: one id per map for
+  per-indicator maps, several with `showIntersection=true` for a crossed map
+  with the overlap highlighted. `tables` are `{title, columns, rows, note?}`.
+  `gaps` declares what AMF360+ could not provide and how it was
+  filled (`other_mcp`, `web`, `model_knowledge`, `not_filled`); results and
+  tables carry `origin`/`originRef`. `governance` is your A-D verdict per
+  layer. `plan` is the planned operations; `trace` is `{operation, input?, result,
+action?}` per executed step. The server reads live update dates for the
+  sources table and adds its map steps to the trace. Sensitive layers are
+  listed but not drawn unless `confirmHumanReview=true`.
+- **render_map** `{aoiId, title?, indicatorIds?, showIntersection?,
+confirmHumanReview?}` — one schematic SVG map, for a report the client
+  assembles itself: no `indicatorIds` gives the overview map (with the Ecuador locator inset
+  for areas in Ecuador); 1-4 ids give a
+  thematic map, crossed with `showIntersection=true`. Returns the SVG, a text
+  legend, and a `trace` entry to add to the report's traceability.
 
 ## Resources
 
@@ -85,5 +102,6 @@ humanReview?, confirmHumanReview?, format?}` — assemble the answer into a
 
 `list_topics` or `find_indicator` → `get_indicator` → `get_layer_schema` →
 `resolve_area` (get an aoiId) → `query_arcgis` (aoiId filter) →
-`spatial_intersection` (aoiId × aoiId) → `generate_report` (with
-`mapIndicatorIds`).
+`spatial_intersection` / `intersect_layers` → `generate_report` (with `maps`,
+`plan` and `trace`), or `render_map` per map and a report assembled by the
+client.

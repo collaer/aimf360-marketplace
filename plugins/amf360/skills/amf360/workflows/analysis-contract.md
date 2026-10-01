@@ -33,10 +33,10 @@ operations:
   - <query_arcgis per indicator, filtered to AOI>
   - <spatial_intersection>
 outputs:
-  - map
-  - table
-  - chart
-  - report
+  - overview_map # the AOI, always
+  - indicator_maps # per indicator and/or crossed (with overlap)
+  - tables
+  - report # sections per references/report-structure.md
 ```
 
 ## Step 3 — check before executing
@@ -46,4 +46,6 @@ outputs:
 - Units are compatible for the operation you plan.
 - The AOI polygon exists (from `resolve_area`).
 
-Only then execute the operations in order, keeping the trace.
+Only then execute the operations in order, keeping the trace. The
+`operations` list becomes the report's "Planned operations"; what you actually
+ran, with results and decisions, becomes "Executed operations and decisions".

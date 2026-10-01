@@ -18,7 +18,11 @@ Return these fields with every analytical answer:
 - **scope** — the AOI (name and/or bbox) and the CRS.
 - **human_review** — whether any sensitive layer was involved and its status.
 - **standards** — FAIR, CARE, W3C PROV, ISO 3166 as applicable.
-- **trace** — the ordered tool calls that produced the result.
+- **trace** — the ordered tool calls that produced the result, each with its
+  input, result and the decision taken from it.
+
+In the final report these fields become the sections listed in
+`report-structure.md` (summary, maps, results, sources, traceability).
 
 ## Provenance per result
 
