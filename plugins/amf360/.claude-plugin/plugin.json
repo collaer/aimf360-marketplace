@@ -1,7 +1,7 @@
 {
   "name": "amf360",
   "description": "AmazoniaForever360+ methodology skill and live MCP tools for grounded, sourced geospatial analysis of Amazonia (indicators, gazetteer, ArcGIS queries, intersection/zonal analysis, governance, reports).",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": {
     "name": "AmazoniaForever360+",
     "url": "https://aimf360.collaer.workers.dev"

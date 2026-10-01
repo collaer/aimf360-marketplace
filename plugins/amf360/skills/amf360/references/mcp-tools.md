@@ -65,6 +65,17 @@ returnGeometry?, returnCountOnly?, resultRecordCount?, confirmHumanReview?}` —
   overlap of two polygons (each an aoiId or a GeoJSON polygon): intersection km2
   and share of the AOI covered.
 
+## Report
+
+- **generate_report** `{question, interpretation?, aoiId?, indicatorIds?,
+mapIndicatorIds?, results?, methodology?, confidence?, confidenceReason?,
+humanReview?, confirmHumanReview?, format?}` — assemble the answer into a
+  markdown or HTML report with the Explainable Answers block and a schematic
+  SVG map. The map shows the AOI, the Ecuador Amazon outline as context, and up
+  to 4 `mapIndicatorIds` feature layers clipped to the AOI, with a legend and
+  scale bar. Pass the layers your results came from. Sensitive layers are
+  listed in the legend but not drawn unless `confirmHumanReview=true`.
+
 ## Resources
 
 - `amf360://methodology` — the compact methodology (this skill's short form).
@@ -74,4 +85,5 @@ returnGeometry?, returnCountOnly?, resultRecordCount?, confirmHumanReview?}` —
 
 `list_topics` or `find_indicator` → `get_indicator` → `get_layer_schema` →
 `resolve_area` (get an aoiId) → `query_arcgis` (aoiId filter) →
-`spatial_intersection` (aoiId × aoiId) → assemble the report.
+`spatial_intersection` (aoiId × aoiId) → `generate_report` (with
+`mapIndicatorIds`).
