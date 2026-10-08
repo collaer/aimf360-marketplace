@@ -27,6 +27,13 @@ endpoint (Streamable HTTP). All queries are read-only.
   year and the source's release cycle, and `whereToCheck` for a newer
   version), publication `freshness` (service last edit, which is not the
   data's age) and `credibility`. Confirm A or D by checking the source.
+- **audit_catalog** `{ids?, scope?, offset?, limit?}` - catalog-wide
+  governance sweep, at most 8 layers per call (page with `nextOffset`). Per
+  layer: catalog checks (translations, links, CARE flag), service reachable,
+  record count, field list, extent in the Ecuadorian Amazon, ArcGIS item
+  metadata completeness (credits, license class, description, summary, tags),
+  data year and provisional grade, and `issues` by severity. Used by the
+  weekly governance review; no web search.
 
 ## Query
 
